@@ -117,10 +117,13 @@ class ButtonFunct extends StatelessWidget {
                 bottom: 3,
                 left: 1,
               ),
-              child: Image.asset(
-                imageUrl,
-                width: 32,
-                fit: BoxFit.fitWidth,
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                child: Image.asset(
+                  imageUrl,
+                  width: 32,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
             Center(

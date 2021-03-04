@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class HomeRoute extends StatefulWidget {
+class HomeRoute extends StatelessWidget {
   @override
-  _HomeRouteState createState() => _HomeRouteState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [PromoBanner(), JelajahSection(), PromoSection()],
+      ),
+    );
+  }
 }
 
-class _HomeRouteState extends State<HomeRoute> {
-  static final List<String> _imagesUrl = [
-    'laundryMachine.png',
-    'tes1.png',
+//BannerSection
+class PromoBanner extends StatefulWidget {
+  @override
+  _PromoBannerState createState() => _PromoBannerState();
+}
+
+class _PromoBannerState extends State<PromoBanner> {
+  static final List<String> imagesUrl = [
+    'promobanner1.png',
+    'promobanner2.png',
+    'promobanner3.png',
   ];
 
   final CarouselSlider autoPlayImage = CarouselSlider(
-    items: _imagesUrl.map((fileImage) {
+    items: imagesUrl.map((fileImage) {
       return Container(
         margin: EdgeInsets.all(5.0),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(10)),
+          // ignore: unnecessary_brace_in_string_interps
           child: Image.asset('assets/images/${fileImage}', fit: BoxFit.cover),
         ),
       );
@@ -32,14 +46,81 @@ class _HomeRouteState extends State<HomeRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView(children: <Widget>[
-      Container(
-        margin: EdgeInsets.only(top: 40),
-        child: autoPlayImage,
+    return Container(
+      margin: EdgeInsets.only(top: 40),
+      child: autoPlayImage,
+    );
+  }
+}
+
+//Promo Section
+class PromoSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // decoration: BoxDecoration(border: Border.all(color: Colors.amber)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              PromoItem('Promo beli dua gratis sepuluh',
+                  'assets/images/promothumb.png'),
+              PromoItem('Promo beli dua gratis sepuluh',
+                  'assets/images/promothumb.png'),
+              PromoItem('Promo beli dua gratis sepuluh',
+                  'assets/images/promothumb.png')
+            ],
+          ),
+          Column(
+            children: [
+              PromoItem('Promo beli dua gratis sepuluh',
+                  'assets/images/promothumb.png'),
+              PromoItem('Promo beli dua gratis sepuluh',
+                  'assets/images/promothumb.png'),
+              PromoItem('Promo beli dua gratis sepuluh',
+                  'assets/images/promothumb.png')
+            ],
+          ),
+        ],
       ),
-      JelajahSection(),
-    ]));
+    );
+  }
+}
+
+//PromoItem
+class PromoItem extends StatelessWidget {
+  final String promoThumbail;
+  final String thumbnailTitle;
+
+  PromoItem(this.thumbnailTitle, this.promoThumbail);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(9),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Container(
+                width: 160,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  child: Image.asset(promoThumbail),
+                ),
+              ),
+              Container(
+                width: 153,
+                child: Text(thumbnailTitle,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -48,24 +129,31 @@ class JelajahSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Jelajahi',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        margin: EdgeInsets.only(top: 17, bottom: 50),
+        child: Container(
+          margin: EdgeInsets.all(26),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              JelajahIcon('Terdekat', 'assets/icon/fbicon.png'),
-              JelajahIcon('Langganan', 'assets/icon/fbicon.png'),
-              JelajahIcon('Sesuaikan Kebutuhan', 'assets/icon/fbicon.png'),
+              Text('Jelajahi',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                      child: JelajahIcon('Terdekat', 'assets/icon/pinLoc.png')),
+                  Expanded(
+                      child:
+                          JelajahIcon('Langganan', 'assets/icon/favIcon.png')),
+                  Expanded(
+                      child: JelajahIcon(
+                          'Sesuaikan Kebutuhan', 'assets/icon/userPref.png'))
+                ],
+              ),
             ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 }
 
@@ -84,7 +172,7 @@ class JelajahIcon extends StatelessWidget {
         children: [
           IconButton(
             icon: Image.asset(iconLoc),
-            iconSize: 20,
+            iconSize: 50,
             onPressed: () {
               Navigator.pop(context);
             },
