@@ -1,12 +1,20 @@
+import 'app.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
 
-void main() {
-  runApp(MaterialApp(
-    title: 'Find Laundry',
-    home: LoginRoute(),
-    debugShowCheckedModeBanner: false,
-  ));
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Find Laundry',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: LoginRoute(),
+    );
+  }
 }
 
 class LoginRoute extends StatefulWidget {
@@ -136,7 +144,7 @@ class ButtonFunct extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomeRoute()),
+              MaterialPageRoute(builder: (context) => App()),
             );
           },
         ));

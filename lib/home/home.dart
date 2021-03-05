@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'iconButton.dart';
-import 'mainMenu.dart';
+import 'jelajah.dart';
 
 class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var scaffold = Scaffold(
+    return Scaffold(
       body: ListView(
         children: [PromoBanner(), JelajahSection(), PromoSection()],
       ),
     );
-    return scaffold;
   }
 }
 
@@ -168,5 +166,42 @@ class JelajahSection extends StatelessWidget {
             ],
           ),
         ));
+  }
+}
+
+//IconButton
+class JelajahIcon extends StatelessWidget {
+  final String caption;
+  final String iconLoc;
+  final double iconSize;
+
+  JelajahIcon(this.caption, this.iconLoc, this.iconSize);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 40),
+      child: Column(
+        children: [
+          IconButton(
+            icon: Image.asset(iconLoc),
+            iconSize: iconSize,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Jelajah(caption),
+                ),
+              );
+            },
+          ),
+          Container(
+            alignment: Alignment.center,
+            width: 70,
+            height: 30,
+            child: Text(caption),
+          ),
+        ],
+      ),
+    );
   }
 }
