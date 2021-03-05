@@ -3,7 +3,7 @@ import 'home.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Login',
+    title: 'Find Laundry',
     home: LoginRoute(),
     debugShowCheckedModeBanner: false,
   ));

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'iconButton.dart';
+import 'mainMenu.dart';
 
 class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var scaffold = Scaffold(
       body: ListView(
         children: [PromoBanner(), JelajahSection(), PromoSection()],
       ),
     );
+    return scaffold;
   }
 }
 
@@ -59,27 +62,37 @@ class PromoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all(color: Colors.amber)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            children: [
-              PromoItem('Promo beli dua gratis sepuluh',
-                  'assets/images/promothumb.png'),
-              PromoItem('Promo beli dua gratis sepuluh',
-                  'assets/images/promothumb.png'),
-              PromoItem('Promo beli dua gratis sepuluh',
-                  'assets/images/promothumb.png')
-            ],
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Text('Promo untuk kamu',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
           ),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              PromoItem('Promo beli dua gratis sepuluh',
-                  'assets/images/promothumb.png'),
-              PromoItem('Promo beli dua gratis sepuluh',
-                  'assets/images/promothumb.png'),
-              PromoItem('Promo beli dua gratis sepuluh',
-                  'assets/images/promothumb.png')
+              Column(
+                children: [
+                  PromoItem('Promo beli dua gratis sepuluh',
+                      'assets/images/promothumb.png'),
+                  PromoItem('Promo beli dua gratis sepuluh',
+                      'assets/images/promothumb.png'),
+                  PromoItem('Promo beli dua gratis sepuluh',
+                      'assets/images/promothumb.png')
+                ],
+              ),
+              Column(
+                children: [
+                  PromoItem('Promo beli dua gratis sepuluh',
+                      'assets/images/promothumb.png'),
+                  PromoItem('Promo beli dua gratis sepuluh',
+                      'assets/images/promothumb.png'),
+                  PromoItem('Promo beli dua gratis sepuluh',
+                      'assets/images/promothumb.png')
+                ],
+              ),
             ],
           ),
         ],
@@ -142,49 +155,18 @@ class JelajahSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                      child: JelajahIcon('Terdekat', 'assets/icon/pinLoc.png')),
-                  Expanded(
-                      child:
-                          JelajahIcon('Langganan', 'assets/icon/favIcon.png')),
+                      child: JelajahIcon(
+                          'Terdekat', 'assets/icon/pinLoc.png', 50.0)),
                   Expanded(
                       child: JelajahIcon(
-                          'Sesuaikan Kebutuhan', 'assets/icon/userPref.png'))
+                          'Langganan', 'assets/icon/favIcon.png', 50.0)),
+                  Expanded(
+                      child: JelajahIcon('Sesuaikan Kebutuhan',
+                          'assets/icon/userPref.png', 50.0))
                 ],
               ),
             ],
           ),
         ));
-  }
-}
-
-//IconButton
-class JelajahIcon extends StatelessWidget {
-  final String caption;
-  final String iconLoc;
-
-  JelajahIcon(this.caption, this.iconLoc);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 40),
-      child: Column(
-        children: [
-          IconButton(
-            icon: Image.asset(iconLoc),
-            iconSize: 50,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          Container(
-            alignment: Alignment.center,
-            width: 70,
-            height: 30,
-            child: Text(caption),
-          ),
-        ],
-      ),
-    );
   }
 }
