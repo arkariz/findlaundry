@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'tabItem.dart';
 import 'bottomNavigation.dart';
 import 'home/home.dart';
+import 'pembayaran/pembayaran.dart';
 
 class App extends StatefulWidget {
   @override
@@ -20,7 +21,8 @@ class AppState extends State<App> {
       icon: Icons.home,
       page: HomeRoute(),
     ),
-    TabItem(tabName: "Pembayaran", icon: Icons.wallet_giftcard, page: null),
+    TabItem(
+        tabName: "Pembayaran", icon: Icons.wallet_giftcard, page: Pembayaran()),
     TabItem(tabName: 'Kotak Surat', icon: Icons.mail, page: null),
     TabItem(tabName: "Akun", icon: Icons.account_box, page: null),
   ];

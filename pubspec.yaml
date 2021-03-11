@@ -23,9 +23,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  auto_size_text_field: ^0.1.7
   carousel_slider: ^3.0.0
   cupertino_icons: ^1.0.0
   custom_navigator: ^0.3.0
+  qr_code_scanner: ^0.3.5
 
 dev_dependencies:
   flutter_test:
