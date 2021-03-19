@@ -73,21 +73,21 @@ class PromoSection extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  PromoItem('Promo beli dua gratis sepuluh',
+                  PromoItem('Promo order dua kali gratis sepuluh',
                       'assets/images/promothumb.png'),
-                  PromoItem('Promo beli dua gratis sepuluh',
+                  PromoItem('Promo order dua kali gratis sepuluh',
                       'assets/images/promothumb.png'),
-                  PromoItem('Promo beli dua gratis sepuluh',
+                  PromoItem('Promo order dua kali gratis sepuluh',
                       'assets/images/promothumb.png')
                 ],
               ),
               Column(
                 children: [
-                  PromoItem('Promo beli dua gratis sepuluh',
+                  PromoItem('Promo order dua kali gratis sepuluh',
                       'assets/images/promothumb.png'),
-                  PromoItem('Promo beli dua gratis sepuluh',
+                  PromoItem('Promo order dua kali gratis sepuluh',
                       'assets/images/promothumb.png'),
-                  PromoItem('Promo beli dua gratis sepuluh',
+                  PromoItem('Promo order dua kali gratis sepuluh',
                       'assets/images/promothumb.png')
                 ],
               ),

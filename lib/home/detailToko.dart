@@ -1,3 +1,4 @@
+import 'package:findlaundry/KotakSurat/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'pemesanan/Pemesanan.dart';
@@ -91,7 +92,7 @@ class ProfileToko extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 7),
                           child: Text(
-                            "Zoey Isabllea",
+                            "Toko wah pinggir jalan",
                             style: TextStyle(fontSize: 14),
                           ),
                         )
@@ -159,7 +160,14 @@ class ProfileToko extends StatelessWidget {
                       height: 19,
                       buttonColor: Colors.cyan,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Chat("Toko wah pinggir jalan"),
+                            ),
+                          );
+                        },
                         child: Text(
                           "Chat",
                           style: TextStyle(color: Colors.white),

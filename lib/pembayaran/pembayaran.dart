@@ -35,7 +35,7 @@ class _PembayaranState extends State<Pembayaran> {
                 Container(
                   margin: EdgeInsets.only(bottom: 23),
                   child: Text(
-                    "Cash",
+                    "Find Laundry Cash",
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -78,7 +78,9 @@ class _PembayaranState extends State<Pembayaran> {
   }
 }
 
+// ignore: must_be_immutable
 class ActionButton extends StatelessWidget {
+  // ignore: unused_field
   String _result;
 
   @override

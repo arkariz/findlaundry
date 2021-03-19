@@ -1,5 +1,6 @@
+import 'package:findlaundry/Akun/detailPesanan.dart';
+import 'package:findlaundry/home/pemesanan/orderSplash.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Pemesanan extends StatefulWidget {
   @override
@@ -15,8 +16,20 @@ class _PemesananState extends State<Pemesanan> {
   int _tarifSetrikaPerKg = 0;
   int _jumlahCuciKilo = 1;
   int _jumlahSetrikaKilo = 1;
+  String _valPengambilan = "Pilih Cara Pengambilan";
+  String _valOpsiPembayaran = "Pilih Opsi Pembayaran";
   String _valCuciKilo = "Pilih Paket";
   String _valSetrikaKilo = "Pilih Paket";
+  List _listPengambilan = [
+    "Pilih Cara Pengambilan",
+    "Antar-Jemput",
+    "Ambil Sendiri"
+  ];
+  List _listPembayaran = [
+    "Pilih Opsi Pembayaran",
+    "Find Laundry Cash",
+    "Bayar Langsung"
+  ];
   List _listCuciKilo = ["Pilih Paket", "Biasa", "Express"];
   List _listSetrikaKilo = ["Pilih Paket", "Biasa", "Express"];
 
@@ -257,7 +270,7 @@ class _PemesananState extends State<Pemesanan> {
             ),
             Visibility(
               child: Container(
-                margin: EdgeInsets.only(left: 6, top: 30),
+                margin: EdgeInsets.only(left: 6, top: 22),
                 width: 320,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -276,7 +289,75 @@ class _PemesananState extends State<Pemesanan> {
                 child: Container(
                   margin: EdgeInsets.all(13),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text(
+                                "Pengambilan",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ),
+                            Container(
+                              child: DropdownButton(
+                                hint: Text("Pilih cara pengambilan"),
+                                value: _valPengambilan,
+                                items: _listPengambilan.map((value) {
+                                  return DropdownMenuItem(
+                                    child: Text(
+                                      value,
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    value: value,
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    _valPengambilan = value;
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text(
+                                "Opsi pembayaran",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ),
+                            Container(
+                              child: DropdownButton(
+                                hint: Text("Pilih Opsi Pembayaran"),
+                                value: _valOpsiPembayaran,
+                                items: _listPembayaran.map((value) {
+                                  return DropdownMenuItem(
+                                    child: Text(
+                                      value,
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    value: value,
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    _valOpsiPembayaran = value;
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -323,16 +404,43 @@ class _PemesananState extends State<Pemesanan> {
                           ),
                         ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 220),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all<Color>(Colors.blue),
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white)),
-                          child: Text("test"),
-                        ),
+                      Row(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.history,
+                                color: Colors.grey,
+                              ),
+                              Container(
+                                child: Text(
+                                  "Estimasi selesai 3 hari",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 60),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.blue),
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white)),
+                              child: Text("Order"),
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => SplashScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

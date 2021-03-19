@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'package:findlaundry/home/home.dart';
 import 'package:flutter/material.dart';
-import 'pembayaran.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -28,7 +28,7 @@ class _SplashState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Pembayaran()));
+        context, MaterialPageRoute(builder: (context) => HomeRoute()));
   }
 
   initScreen(BuildContext context) {
@@ -37,10 +37,10 @@ class _SplashState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(child: Image.asset("assets/images/thank.png")),
+            Container(child: Image.asset("assets/images/splashOrder.png")),
             Padding(padding: EdgeInsets.only(top: 20.0)),
             Text(
-              "Pembayaran Anda Telah Berhasil",
+              "Orderan Anda Sedang Diproses",
               style: TextStyle(fontSize: 20.0, color: Colors.lightBlue),
             ),
             Padding(padding: EdgeInsets.only(top: 20.0)),

@@ -35,6 +35,13 @@ class _LoginRouteState extends State<LoginRoute> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  child: Text(
+                    'FIND LAUNDRY',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+                ),
                 Image.asset(
                   'assets/images/laundryMachine.png',
                   width: 200,
@@ -44,7 +51,7 @@ class _LoginRouteState extends State<LoginRoute> {
                   margin: const EdgeInsets.only(top: 20),
                   child: Text(
                     'BERSIH BERSIH',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   ),
                 ),
                 Container(

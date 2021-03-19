@@ -1,3 +1,5 @@
+import 'package:findlaundry/Akun/profile.dart';
+import 'package:findlaundry/KotakSurat/kotakmasuk.dart';
 import 'package:flutter/material.dart';
 import 'tabItem.dart';
 import 'bottomNavigation.dart';
@@ -23,8 +25,8 @@ class AppState extends State<App> {
     ),
     TabItem(
         tabName: "Pembayaran", icon: Icons.wallet_giftcard, page: Pembayaran()),
-    TabItem(tabName: 'Kotak Surat', icon: Icons.mail, page: null),
-    TabItem(tabName: "Akun", icon: Icons.account_box, page: null),
+    TabItem(tabName: 'Kotak Surat', icon: Icons.mail, page: KotakMasuk()),
+    TabItem(tabName: "Akun", icon: Icons.account_box, page: Profile()),
   ];
 
   AppState() {
